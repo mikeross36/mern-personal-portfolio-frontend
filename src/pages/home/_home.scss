@@ -1,0 +1,175 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
+
+.home {
+  background-image: linear-gradient(rgba(31, 31, 31, 0.2), rgba(31, 31, 31, 1)),
+    url("../../images/home-bcg.jpg");
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: grid;
+    row-gap: 2.5rem;
+    position: relative;
+
+    @include mixins.breakpoint-up(medium) {
+      padding-top: 5rem;
+      row-gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      padding-top: 4rem;
+    }
+  }
+
+  .home__img-bcg {
+    background-color: $firstClr;
+    width: 14rem;
+    height: 29rem;
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    justify-self: flex-end;
+    transform: translateX(1.5rem);
+
+    @include mixins.breakpoint-up(small) {
+      width: 16rem;
+    }
+
+    @include mixins.breakpoint-up(medium) {
+      // order: 1;
+      transform: translate(1.5rem, -6rem);
+      width: 15.625rem;
+      height: 37rem;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      width: 24rem;
+      height: 42rem;
+    }
+
+    .home__img {
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      width: 18rem;
+      box-shadow: $box-shadow-1;
+
+      @include mixins.breakpoint-up(medium) {
+        width: 20rem;
+      }
+
+      @include mixins.breakpoint-up(large) {
+        top: 16%;
+      }
+    }
+  }
+
+  .home__socials {
+    position: absolute;
+    top: 39%;
+    left: -11.5rem;
+    transform: rotate(-90deg);
+    display: flex;
+    column-gap: 1.5rem;
+    align-items: center;
+
+    @include mixins.breakpoint-up(medium) {
+      left: -13rem;
+      top: 46%;
+      column-gap: 2rem;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      left: -16rem;
+      top: 49%;
+    }
+
+    .line-before {
+      height: 1px;
+      width: 2rem;
+      background-color: $firstClr;
+    }
+
+    .line-after {
+      height: 1px;
+      width: calc(6rem + 4vw);
+      background-color: $firstClr;
+
+      @include mixins.breakpoint-up(large) {
+        width: 15.5rem;
+      }
+    }
+
+    &-link {
+      font-size: $fontMd;
+      color: $textClr;
+      font-weight: $weightLg;
+      text-transform: capitalize;
+      transition: 0.3s;
+
+      &:hover {
+        color: $textClrLight;
+      }
+    }
+  }
+
+  .home__data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    @include mixins.breakpoint-up(medium) {
+      padding: 0 0 3rem 3rem;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      row-gap: 1.4rem;
+      padding: 0 0 8rem 4rem;
+    }
+  }
+
+  .home__title {
+    text-transform: capitalize;
+    color: $textClr;
+    line-height: 1;
+    background: linear-gradient(150deg, $textClr 20%, $firstClr 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    @include mixins.breakpoint-up(medium) {
+      font-size: $fontXlg;
+      background: linear-gradient(150deg, $textClr 30%, $firstClr 40%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+
+  .home__underline {
+    height: 1px;
+    width: 100%;
+    background-color: $firstClr;
+    margin: 0.5rem 0;
+  }
+
+  .home__description {
+    margin-bottom: $mb-1-5;
+    color: $textClr;
+    text-transform: capitalize;
+    text-shadow: $text-shadow-1;
+    line-height: 150%;
+  }
+}

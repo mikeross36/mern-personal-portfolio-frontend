@@ -1,0 +1,106 @@
+@use "./mixins";
+@use "./variables" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  width: 100%;
+  min-height: 100%;
+}
+body {
+  width: inherit;
+  min-height: inherit;
+  font-family: $bodyFont;
+  font-size: 16px;
+  background: $bodyClr;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-size: 2.5rem;
+  @include mixins.breakpoint-up(medium) {
+    font-size: 3rem;
+  }
+}
+h2 {
+  font-size: 2rem;
+  @include mixins.breakpoint-up(medium) {
+    font-size: 2.3rem;
+  }
+}
+h3 {
+  font-size: 1.5rem;
+  @include mixins.breakpoint-up(medium) {
+    font-size: 1.8rem;
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+// REUSABLE CLASSES
+.container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+
+  @include mixins.breakpoint-down(small) {
+    margin-left: $mb-1;
+    margin-right: $mb-1;
+  }
+
+  @include mixins.breakpoint-up(xlarge) {
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+  }
+}
+
+.section {
+  padding: 6.5rem 1rem 1rem 1rem;
+
+  @include mixins.breakpoint-up(medium) {
+    padding: 6.5rem 0 1rem 0;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: $mb-3;
+    color: $btnClr;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: $text-shadow-1;
+    letter-spacing: 2px;
+    text-align: center;
+
+    @include mixins.breakpoint-up(medium) {
+      &:last-child {
+        font-size: inherit;
+      }
+    }
+  }
+}

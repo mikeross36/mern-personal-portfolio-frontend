@@ -1,0 +1,115 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
+
+.contact {
+  border-bottom: 2px solid rgba($bodyClr, 0.7);
+
+  & h3 {
+    text-align: center;
+    color: $textClr;
+    font-size: $fontMd;
+
+    @include mixins.breakpoint-up(medium) {
+      font-size: $fontSlg;
+    }
+  }
+
+  @include mixins.breakpoint-up(xlarge) {
+    padding: 5rem 7%;
+    margin-top: 1rem;
+  }
+}
+
+.signup__section {
+  height: 80vh;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .signup__form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .signup__title {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: $textClr;
+    }
+
+    .signup__form {
+      padding: 2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: $borderCrl;
+      box-shadow: $box-shadow-1;
+
+      .input__control {
+        margin: 0.5rem 0;
+      }
+
+      .form__input {
+        width: 15rem;
+        height: 2.5rem;
+        outline: none;
+        padding: 0 0.6rem;
+        margin: 0.5rem 0;
+        border: 1px solid $containerClr;
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+        font-size: $fontSm;
+        background: $titleClr;
+
+        &::placeholder {
+          color: $btnClrLg;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .submit__btn {
+        margin: 1.5rem 0;
+        width: 6em;
+        height: 1.5em;
+        font-size: $fontSlg;
+        border-radius: 0.5em;
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+        color: $btnClrLg;
+        text-transform: capitalize;
+        transition: 0.3s;
+        cursor: pointer;
+        padding-right: 5%;
+        transform: perspective(600px) rotateY(-35deg);
+
+        &:hover {
+          transform: perspective(200px) rotateY(-40deg);
+          padding-right: 5%;
+        }
+      }
+
+      .already__link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+        & span {
+          color: $textClr;
+          font-size: $fontSm;
+        }
+
+        .link {
+          color: $textClr;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
+
+.about {
+  &__container {
+    display: grid;
+    max-width: 1024px;
+    margin: auto;
+
+    @include mixins.breakpoint-up(small) {
+      grid-template-columns: max-content 1fr;
+      justify-items: center;
+      justify-content: space-around;
+    }
+
+    @include mixins.breakpoint-up(medium) {
+      column-gap: 2rem;
+      padding: 4rem 1rem;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      padding: 5rem 1rem;
+    }
+
+    .about__resume-title {
+      color: $textClr;
+      text-transform: uppercase;
+      margin-bottom: $mb-1;
+    }
+
+    & p {
+      font-size: $fontMd;
+      color: $textClr;
+      margin-bottom: $mb-0-5;
+      line-height: 150%;
+    }
+  }
+
+  .about__resume {
+    height: max-content;
+
+    &-item {
+      position: relative;
+      margin-bottom: $mb-2;
+      max-width: 20rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background-color: $firstClr;
+        bottom: -5%;
+      }
+
+      @include mixins.breakpoint-up(medium) {
+        max-width: 40rem;
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  .about__skills {
+    height: max-content;
+
+    @include mixins.breakpoint-up(medium) {
+      justify-self: end;
+      padding-bottom: 1rem;
+    }
+
+    .about__skills-item {
+      display: flex;
+      column-gap: 3rem;
+      align-items: center;
+      margin-bottom: 0.75rem;
+
+      @include mixins.breakpoint-up(medium) {
+        margin-bottom: 0.5rem;
+      }
+
+      .about__tickbox {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}

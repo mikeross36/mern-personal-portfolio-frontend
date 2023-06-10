@@ -1,0 +1,125 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
+
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.scroll-header {
+    background-color: $btnClrLg;
+    box-shadow: 0 1px 4px hsla(0, 4%, 15%, 0.1);
+  }
+}
+
+.nav {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include mixins.breakpoint-up(medium) {
+    column-gap: 3rem;
+    height: 5rem;
+  }
+
+  &__logo {
+    margin-left: 1rem;
+    transform: rotate(-30deg);
+
+    @include mixins.breakpoint-up(medium) {
+      & img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  &__menu {
+    transition: 0.5s;
+
+    @include mixins.breakpoint-down(medium) {
+      background: $bodyClr;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100%;
+      padding: 6rem 0;
+      z-index: 110;
+    }
+
+    &.show-menu {
+      right: 0;
+      transition: right 0.5s;
+    }
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+    padding-left: 0;
+
+    @include mixins.breakpoint-up(medium) {
+      flex-direction: row;
+      justify-content: flex-start;
+      column-gap: 3rem;
+    }
+
+    @include mixins.breakpoint-up(medium) {
+      column-gap: 4rem;
+    }
+  }
+
+  .nav__link {
+    color: $titleClr;
+    font-weight: $weightLg;
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+
+    @include mixins.breakpoint-up(medium) {
+      font-size: $fontMd;
+      font-weight: normal;
+      transition: none;
+    }
+
+    @include mixins.breakpoint-up(large) {
+      font-size: 1.3rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+      transform: 0.3s;
+    }
+  }
+
+  @include mixins.breakpoint-up(medium) {
+    .nav__close,
+    .nav__toggle {
+      cursor: pointer;
+      display: none;
+    }
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    background: transparent;
+  }
+
+  .nav__toggle {
+    margin-right: 1rem;
+    background: transparent;
+  }
+}

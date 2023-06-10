@@ -1,0 +1,180 @@
+@use "../../styles/mixins";
+@use "../../styles/variables" as *;
+
+.chat {
+  max-width: 1024px;
+  margin: 0 auto;
+
+  &__sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 10px;
+
+    & h5 {
+      color: $textClr;
+
+      @include mixins.breakpoint-up(medium) {
+        font-size: $fontSlg;
+        padding: 1rem !important;
+      }
+    }
+  }
+}
+.chat__container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  width: 100%;
+  height: 60vh;
+  padding: 0.5rem;
+  gap: 0.5rem;
+
+  @include mixins.breakpoint-up(medium) {
+    grid-template-columns: 20% 80%;
+    gap: 1rem;
+  }
+}
+
+.user__list-item {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: black;
+  font-size: $fontSm;
+  background: $titleClr;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+
+  & img {
+    margin-right: 2rem;
+    width: 50px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background: $selectChatClr;
+    color: $titleClr;
+  }
+}
+
+.my__chats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px 0;
+  width: 100%;
+  border-radius: 5px;
+
+  &-header {
+    padding: 3px 0;
+    font-size: 5px;
+    width: 100%;
+
+    & h6 {
+      color: $textClr;
+      padding-top: 0.5rem;
+    }
+  }
+
+  .chats__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 3px 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 1px solid $textClr;
+    overflow-y: hidden;
+
+    &.selectedChat {
+      padding: 3px;
+      background: $bodyClr;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      overflow-y: hidden;
+    }
+
+    & article {
+      display: flex;
+      flex-direction: column;
+      color: $textClr;
+      font-size: 12px;
+      background: $bodyClr;
+      padding: 2px 3px;
+      cursor: pointer;
+      border: 1px solid $borderCrl;
+      border-radius: 5px;
+      margin-bottom: 2px;
+
+      &:hover {
+        background: $selectChatClr;
+        color: $titleClr;
+      }
+
+      .latest__message {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    & article.selectedChat {
+      background: $selectChatClr;
+      color: $titleClr;
+    }
+  }
+}
+
+.user__badge-item {
+  padding: 1px 2px;
+  border-radius: 5px;
+  margin: 1px 1px 2px 1px;
+  color: $titleClr;
+  font-size: 14px;
+  background: $firstClr;
+  cursor: pointer;
+}
+
+.chat__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+  width: calc(100% - 0.5rem);
+  border-radius: 5px;
+
+  &.selectedChat {
+    padding: 3px;
+    background: white;
+    width: 100%;
+    border-radius: 5px;
+  }
+}
+
+.messages__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3px 1.5rem 2px 0;
+  // background: #e8e8e8;
+  // border: 1px solid $borderCrl;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow-y: hidden;
+
+  & .messages {
+    font-size: $fontSm;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 0 0.5rem;
+  }
+}
