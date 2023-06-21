@@ -15,7 +15,7 @@ export const projects = [
     id: nextId(),
     image: ganja,
     btns: [
-      { id: nextId(), url: "https://ganjawebshop.cyclic.app", icon: eye },
+      { id: nextId(), url: "https://ganja-webshop.onrender.com/", icon: eye },
       { id: nextId(), url: "https://github.com/mikeross36", icon: github },
     ],
   },
