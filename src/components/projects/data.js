@@ -33,7 +33,7 @@ export const projects = [
     btns: [
       {
         id: nextId(),
-        url: "https://drones-crude-rest-api.cyclic.app/#home",
+        url: "https://veridiantech.onrender.com/",
         icon: eye,
       },
       { id: nextId(), url: "https://github.com/mikeross36", icon: github },
