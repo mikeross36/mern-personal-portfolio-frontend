@@ -23,7 +23,7 @@ export const projects = [
     id: nextId(),
     image: drmartens,
     btns: [
-      { id: nextId(), url: "https://drmartens-shop.netlify.app/", icon: eye },
+      { id: nextId(), url: "https://drmartensns.onrender.com/", icon: eye },
       { id: nextId(), url: "https://github.com/mikeross36", icon: github },
     ],
   },
