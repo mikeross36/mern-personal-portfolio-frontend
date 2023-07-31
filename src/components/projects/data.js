@@ -13,9 +13,13 @@ import michelangelo from "../../images/michelangelo.png";
 export const projects = [
   {
     id: nextId(),
-    image: ganja,
+    image: drones,
     btns: [
-      { id: nextId(), url: "https://ganja-webshop.onrender.com/", icon: eye },
+      {
+        id: nextId(),
+        url: "https://veridiantech.onrender.com/",
+        icon: eye,
+      },
       { id: nextId(), url: "https://github.com/mikeross36", icon: github },
     ],
   },
@@ -29,13 +33,9 @@ export const projects = [
   },
   {
     id: nextId(),
-    image: drones,
+    image: ganja,
     btns: [
-      {
-        id: nextId(),
-        url: "https://veridiantech.onrender.com/",
-        icon: eye,
-      },
+      { id: nextId(), url: "https://ganja-webshop.onrender.com/", icon: eye },
       { id: nextId(), url: "https://github.com/mikeross36", icon: github },
     ],
   },
